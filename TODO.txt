@@ -1,0 +1,2 @@
+Implement graphite style functions for graphs on arbitrary series of data:
+  http://graphite.readthedocs.org/en/0.9.10/functions.html
