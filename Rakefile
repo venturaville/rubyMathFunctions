@@ -21,5 +21,11 @@ namespace :gem do
     puts "Removing built gem"
     `rm arraymath-*.gem`
   end
+
+  desc "Installing bundle dependencies"
+  task :deps do
+    puts "Installing dependencies"
+    `bundle install`
+  end
 end
 
