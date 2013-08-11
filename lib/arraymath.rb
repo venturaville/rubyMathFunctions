@@ -27,5 +27,19 @@ class ArrayMath
     diff
   end
 
-end
+    #  values      Time series array
+    #  period      A complete season's data consists of L periods. And we need
+    #              to estimate the trend factor from one period to the next. To
+    #              accomplish this, it is advisable to use two complete seasons;
+    #              that is, 2L periods.
+    #  m           Extrapolated future data points
+    #              - 4 quarterly
+    #              - 7 weekly
+    #              - 12 monthly
+  # Holt Winters forecast
+  # period = number of periods covered
+  def forecast(values, period = 10, m = 2, alpha = 0.5, beta = 0.5, gamma = 0.5)
+    ::HoltWinters.forecast(values,alpha,beta,gamma,period,m)
+  end
 
+end
