@@ -3,29 +3,49 @@
 require 'rubygems'
 require 'arraymath'
 
+class Testing
+  def initialize
+    @values = (0..64).to_a
+    @am = ArrayMath.new()
+    puts "Values:",@values.inspect
+  end
 
-def test2()
-  am = ArrayMath.new()
-  values = (0..64).to_a
-  puts values.inspect
-  ewma_vals = am.ewma(values,5)
-  puts ewma_vals.inspect
-  diff_vals = am.derivative(ewma_vals)
-  puts diff_vals.inspect
+  def test_ewma()
+    puts "EWMA:",@am.ewma(@values,5).inspect
+  end
 
-  forecast_vals = am.forecast(values)
-  puts forecast_vals.inspect
+  def test_derivative()
+    puts "Derivative:",@am.derivative(@values).inspect
+  end
+
+  def test_forecast()
+    puts "Forecast:",@am.forecast(@values).inspect
+  end
+
+  def test_stddev()
+    puts "Stddev:",@am.stddev(@values,5).inspect
+  end
+
+  def test_scale()
+    puts "Scale:",@am.scale(@values,3).inspect
+  end
+
+  def test_offset()
+    puts "Offset:",@am.offset(@values,3).inspect
+  end
+
+  def test_integral()
+    puts "Integral:",@am.integral(@values).inspect
+  end
 end
 
-def test()
-  am = ArrayMath.new()
-  values = [1,3,5,7,9,11,13,15,17,19,17,13,16,3,7,1,2,3,3,6,7,4]
-  puts values.inspect
-  ewma_vals = am.ewma(values,5)
-  puts ewma_vals.inspect
-  diff_vals = am.derivative(ewma_vals)
-  puts diff_vals.inspect
-end
+t = Testing.new()
 
-test()
-test2()
+t.test_ewma()
+t.test_derivative()
+t.test_forecast()
+t.test_stddev()
+t.test_scale()
+t.test_offset()
+t.test_integral()
+

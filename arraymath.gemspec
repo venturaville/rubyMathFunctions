@@ -9,7 +9,5 @@ Gem::Specification.new do |s|
   s.description = "Array Math Functions - for analysis"
   s.bindir = "bin"
   s.executables = %w{ }
-  %w{ }.each do |d|
-    s.add_dependency d
-  end
+  s.add_dependency 'ruby-standard-deviation', '2.0.0'
 end
